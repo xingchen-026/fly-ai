@@ -1,0 +1,29 @@
+# --- environments / caches ---
+.venv/
+.uv-cache/
+__pycache__/
+*.pyc
+
+# --- large FlyWire source data (download separately) ---
+# the small mini-subset files needed to run are committed:
+#   data/connectome_mini.npz
+#   data/selected_neurons_mini.feather
+#   data/selected_body_ids_mini.npy
+#   data/neurotransmitters_mini.feather   (131 KB derived table)
+data/connectome-weights-*.feather
+data/tbar-*.feather
+data/body-neurotransmitters-*.feather
+data/body-annotations-*.feather
+data/selected_neurons.feather
+data/selected_neurons_small.feather
+data/selected_body_ids.npy
+data/selected_body_ids_small.npy
+
+# --- run artifacts (a few reference outputs are whitelisted) ---
+logs/*
+!logs/.gitkeep
+!logs/ablation_multiseed.txt
+!logs/ablation_long.txt
+!logs/render_test.png
+!logs/lighting_night.png
+!logs/lighting_day.png

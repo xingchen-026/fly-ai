@@ -1,0 +1,511 @@
+{
+  "seed": 20260916,
+  "world": {
+    "chunk": 32,
+    "cache_chunks": 768,
+    "sweep_every": 240,
+    "elevation": {
+      "scale": 56.0,
+      "octaves": 4,
+      "gain": 0.5,
+      "lacunarity": 2.0
+    },
+    "moisture": {
+      "scale": 74.0,
+      "octaves": 3,
+      "gain": 0.55,
+      "lacunarity": 2.0
+    },
+    "sea_level": 0.33,
+    "shallow_level": 0.375,
+    "mountain_level": 0.76,
+    "regrow_ticks": 900,
+    "ash_ticks": 1200,
+    "bloom_ticks": 420,
+    "ambient_base": 21.0,
+    "diurnal_amp": 5.0,
+    "season_temp_offsets": [
+      -1.5,
+      7.0,
+      1.0,
+      -9.0
+    ],
+    "water_temp_offset": -4.0,
+    "forest_temp_offset": 0.5,
+    "rock_temp_offset": -1.5,
+    "fire_warm_radius": 1,
+    "campfire_warmth": 9.0
+  },
+  "time": {
+    "fps": 30,
+    "ticks_per_day": 240,
+    "days_per_season": 3,
+    "neural_dt_ms": 1.0,
+    "neural_steps_per_tick": 8
+  },
+  "events": {
+    "start_clear_ticks": [
+      120,
+      400
+    ],
+    "weather_min_ticks": 150,
+    "weather_max_ticks": 520,
+    "weather_effects": {
+      "clear": {
+        "temp": 0.0,
+        "thirst": 1.0,
+        "energy": 1.0,
+        "regrow": 1.0,
+        "move": 1.0,
+        "vision": 1.0
+      },
+      "rain": {
+        "temp": -3.0,
+        "thirst": 0.75,
+        "energy": 1.05,
+        "regrow": 1.5,
+        "move": 1.1,
+        "vision": 1.0
+      },
+      "storm": {
+        "temp": -6.0,
+        "thirst": 0.7,
+        "energy": 1.15,
+        "regrow": 1.8,
+        "move": 1.3,
+        "vision": 0.8
+      },
+      "drought": {
+        "temp": 4.0,
+        "thirst": 1.5,
+        "energy": 1.0,
+        "regrow": 0.35,
+        "move": 1.0,
+        "vision": 1.0
+      },
+      "cold_snap": {
+        "temp": -10.0,
+        "thirst": 0.9,
+        "energy": 1.45,
+        "regrow": 0.7,
+        "move": 1.15,
+        "vision": 0.9
+      },
+      "heatwave": {
+        "temp": 10.0,
+        "thirst": 1.7,
+        "energy": 1.1,
+        "regrow": 0.8,
+        "move": 1.1,
+        "vision": 1.0
+      },
+      "fog": {
+        "temp": -1.0,
+        "thirst": 1.0,
+        "energy": 1.0,
+        "regrow": 1.1,
+        "move": 1.05,
+        "vision": 0.5
+      }
+    },
+    "season_weather_probs": {
+      "spring": {
+        "clear": 0.44,
+        "rain": 0.24,
+        "storm": 0.06,
+        "drought": 0.06,
+        "cold_snap": 0.06,
+        "heatwave": 0.08,
+        "fog": 0.06
+      },
+      "summer": {
+        "clear": 0.42,
+        "rain": 0.14,
+        "storm": 0.09,
+        "drought": 0.16,
+        "cold_snap": 0.01,
+        "heatwave": 0.16,
+        "fog": 0.02
+      },
+      "autumn": {
+        "clear": 0.44,
+        "rain": 0.18,
+        "storm": 0.08,
+        "drought": 0.08,
+        "cold_snap": 0.08,
+        "heatwave": 0.06,
+        "fog": 0.08
+      },
+      "winter": {
+        "clear": 0.4,
+        "rain": 0.1,
+        "storm": 0.05,
+        "drought": 0.05,
+        "cold_snap": 0.3,
+        "heatwave": 0.0,
+        "fog": 0.1
+      }
+    },
+    "wildfire": {
+      "enabled": true,
+      "chance": 0.01,
+      "check_every": 30,
+      "spawn_dist": [
+        10,
+        34
+      ],
+      "spread_every": 8,
+      "spread_chance": 0.24,
+      "burn_ticks": [
+        150,
+        360
+      ],
+      "max_fire_tiles": 120,
+      "damage_per_tick": 0.9,
+      "dry_boost": 2.2
+    },
+    "plague": {
+      "enabled": true,
+      "chance": 0.006,
+      "check_every": 60,
+      "spawn_dist": [
+        12,
+        40
+      ],
+      "radius": 4,
+      "life_ticks": [
+        400,
+        900
+      ],
+      "damage_per_tick": 0.12
+    },
+    "bloom": {
+      "enabled": true,
+      "chance": 0.016,
+      "check_every": 45,
+      "spawn_dist": [
+        8,
+        30
+      ],
+      "radius": 7,
+      "life_ticks": [
+        300,
+        700
+      ]
+    },
+    "migration": {
+      "enabled": true,
+      "chance": 0.012,
+      "check_every": 50,
+      "spawn_dist": [
+        10,
+        26
+      ],
+      "count": [
+        3,
+        7
+      ]
+    },
+    "incursion": {
+      "enabled": true,
+      "chance": 0.008,
+      "check_every": 70,
+      "spawn_dist": [
+        16,
+        32
+      ],
+      "count": [
+        1,
+        2
+      ]
+    }
+  },
+  "neural": {
+    "files": {
+      "connectome": "connectome_mini.npz",
+      "neurons": "selected_neurons_mini.feather",
+      "neurotransmitters": "body-neurotransmitters-male-cns-v1.0.feather"
+    },
+    "synapse_power": 0.6,
+    "syn_gain": 30.0,
+    "inhib_target_ratio": 0.3,
+    "lif": {
+      "v_rest": -65.0,
+      "v_reset": -70.0,
+      "v_thresh": -50.0,
+      "tau_m": 20.0,
+      "t_refract": 2.0,
+      "noise_sigma": 2.05
+    },
+    "rate_tau": 60.0,
+    "homeostasis": {
+      "enabled": true,
+      "target_hz": 3.0,
+      "lr": 0.05,
+      "gain_min": 0.2,
+      "gain_max": 5.0
+    },
+    "n_input": 160,
+    "n_motor_groups": 8,
+    "n_features": 203,
+    "enc_gain": 26.0,
+    "seed": 7,
+    "plasticity": {
+      "stdp": {
+        "enabled": true,
+        "a_plus": 0.05,
+        "a_minus": 0.06,
+        "tau_trace": 20.0,
+        "elig_tau": 900.0,
+        "exc_only": true,
+        "w_cap_mult": 3.0,
+        "w_floor": 0.02,
+        "forget": 2e-05,
+        "stride_ms": 6,
+        "syn_homeostasis": {
+          "enabled": true,
+          "every_ticks": 20,
+          "rate": 0.05,
+          "band_low": 0.8,
+          "band_high": 1.25
+        }
+      },
+      "neuromod": {
+        "enabled": true,
+        "lr": 0.25,
+        "clip": 1.0
+      },
+      "readout": {
+        "enabled": true,
+        "lr": 0.015,
+        "decay": 0.001,
+        "clip": 2.5
+      },
+      "sync_every_ticks": 2,
+      "elig_decay_every_ticks": 2
+    }
+  },
+  "agent": {
+    "max_stat": 100.0,
+    "start": {
+      "hp": 100.0,
+      "energy": 85.0,
+      "thirst": 85.0,
+      "temp": 30.0,
+      "fatigue": 5.0
+    },
+    "metabolism": {
+      "energy_base": 0.028,
+      "energy_move": 0.055,
+      "energy_rest": -0.012,
+      "energy_cold": 0.05,
+      "thirst_base": 0.036,
+      "thirst_move": 0.02,
+      "thirst_heat": 0.05,
+      "fatigue_move": 0.05,
+      "fatigue_rest": -0.22,
+      "fatigue_awake": 0.008,
+      "temp_relax": 0.022,
+      "water_cooling": -2.5,
+      "hp_regen": 0.012,
+      "starve_damage": 0.3,
+      "dehydrate_damage": 0.42,
+      "cold_damage": 0.25,
+      "heat_damage": 0.35,
+      "hypothermia_below": 10.0,
+      "hyperthermia_above": 38.0
+    },
+    "eat": {
+      "berry_energy": 26.0,
+      "berry_thirst": 6.0,
+      "prey_energy": 50.0,
+      "drink_thirst": 42.0,
+      "drink_energy": 1.0,
+      "mushroom_energy": 34.0,
+      "stored_energy": 24.0
+    },
+    "respawn": true,
+    "poison_damage": 0.12,
+    "max_poison_ticks": 60.0,
+    "reward": {
+      "eat_berry": 0.6,
+      "drink": 0.35,
+      "hunt": 1.0,
+      "damage_scale": -0.06,
+      "death": -1.0,
+      "tonic": 0.01,
+      "tonic_hp": 50.0,
+      "tonic_energy": 50.0,
+      "tonic_thirst": 50.0
+    },
+    "inventory": {
+      "food": 8,
+      "wood": 8,
+      "stone": 6
+    },
+    "poison_berry": {
+      "min_energy_to_risk": 35.0,
+      "energy": 18.0,
+      "poison_ticks": 30.0
+    },
+    "building": {
+      "campfire_wood": 2,
+      "campfire_stone": 1,
+      "campfire_life": 1500,
+      "campfire_refuel": 900,
+      "shelter_wood": 4,
+      "shelter_stone": 2,
+      "shelter_life": 6000,
+      "fatigue_cost": 2.0,
+      "reward_campfire": 0.3,
+      "reward_shelter": 0.4,
+      "reward_refuel": 0.15,
+      "reward_material": 0.04,
+      "shelter_insulation": 2.0,
+      "shelter_rest_bonus": 1.5
+    }
+  },
+  "creatures": {
+    "prey_max": 40,
+    "predator_max": 6,
+    "prey_move_every": 2,
+    "prey_flee_dist": 5,
+    "prey_catch_chance": 0.65,
+    "prey_energy": 50.0,
+    "predator_move_every": 1,
+    "predator_sense": 12,
+    "predator_bite_damage": 9.0,
+    "predator_bite_cooldown": 20,
+    "despawn_dist": 60,
+    "update_every": 2
+  },
+  "decision": {
+    "decide_every_ticks": 4,
+    "instinct_gain": 1.0,
+    "network_gain": 0.65,
+    "urge_low": 55.0,
+    "sticky": 0.1,
+    "explore_noise": 0.05,
+    "predator_flee_dist": 7,
+    "hunt_dist": 2
+  },
+  "render": {
+    "width": 1280,
+    "height": 800,
+    "tile_px": 10,
+    "map_radius": 32,
+    "fps_cap": 30,
+    "font": "microsoftyahei,simhei,arial",
+    "speed_options": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "default_speed": 1,
+    "map_refresh_frames": 4
+  },
+  "ecology": {
+    "enabled": true,
+    "check_every": 40,
+    "active_radius": 34,
+    "despawn_radius": 64,
+    "sample_points": 180,
+    "species": {
+      "fly": {
+        "enabled": true
+      },
+      "aphid": {
+        "enabled": true
+      },
+      "spider": {
+        "enabled": true
+      },
+      "wasp": {
+        "enabled": true
+      },
+      "caterpillar": {
+        "enabled": true
+      },
+      "firefly": {
+        "enabled": true
+      }
+    },
+    "season": {
+      "spring": {
+        "density": 1.25,
+        "migration": 1.45,
+        "incursion": 0.8,
+        "cold_dieoff": 0.0
+      },
+      "summer": {
+        "density": 1.35,
+        "migration": 1.0,
+        "incursion": 1.3,
+        "cold_dieoff": 0.0
+      },
+      "autumn": {
+        "density": 1.0,
+        "migration": 1.3,
+        "incursion": 1.1,
+        "cold_dieoff": 0.0
+      },
+      "winter": {
+        "density": 0.4,
+        "migration": 0.4,
+        "incursion": 0.3,
+        "cold_dieoff": 0.02
+      }
+    }
+  },
+  "population": {
+    "size": 3,
+    "focus": 0,
+    "colors": [
+      [
+        255,
+        214,
+        80
+      ],
+      [
+        120,
+        220,
+        255
+      ],
+      [
+        255,
+        140,
+        200
+      ],
+      [
+        180,
+        255,
+        140
+      ],
+      [
+        255,
+        170,
+        110
+      ],
+      [
+        200,
+        170,
+        255
+      ]
+    ],
+    "evolution": {
+      "enabled": true,
+      "clone_best": true,
+      "mutation_synapse_rate": 0.004,
+      "mutation_sigma": 0.1,
+      "mutation_readout_sigma": 0.1,
+      "mutation_trait_sigma": 0.06,
+      "fitness_survival": 0.002,
+      "fitness_food": 1.0,
+      "spawn_radius": [
+        6,
+        20
+      ]
+    }
+  }
+}
